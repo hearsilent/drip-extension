@@ -1,0 +1,30 @@
+{
+  "name": "DRIP",
+  "version": "1.0.0",
+  "description": "DRIP - Campaign Tracker, Analytics and Statistics",
+  "permissions": ["activeTab", "declarativeContent", "storage", "tabs", "contextMenus"],
+  "icons": {
+    "16": "drip-icon.png",
+    "32": "drip-icon.png",
+    "48": "drip-icon.png",
+    "128": "drip-icon.png"
+  },
+  "browser_action": {
+    "default_icon": "drip-icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.indiegogo.com/projects/*",
+        "https://www.zeczec.com/projects/*",
+        "https://www.kickstarter.com/projects/*"
+      ],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "manifest_version": 2
+}
