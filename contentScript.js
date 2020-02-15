@@ -67,7 +67,7 @@ function getProjectInfo(platformName, tabURL) {
       return '#main'
     },
     kickstarter: () => {
-      return '#react-project-header'
+      return '#react-project-header > div'
     },
     flyingv: () => {
       return 'body > div.wrapper > section > section.projectContentUpper > div > div.row.uppercontent'
@@ -88,15 +88,15 @@ function getProjectInfo(platformName, tabURL) {
 
 function displayChart({ platformId, projectId }, appendedDomSelector) {
   const iframe = document.createElement('IFRAME')
-  // const baseURL = `https://drip.zectrack.today`
-  const baseURL = 'http://localhost:3000'
+  const baseURL = `https://drip.zectrack.today`
+
   iframe.setAttribute('src', `${baseURL}/platform/${platformId}/projects/${projectId}`)
   iframe.setAttribute('scrolling', 'no')
   iframe.setAttribute('frameborder', '0')
   iframe.setAttribute('allowTransparency', 'true')
   iframe.setAttribute(
     'style',
-    'height: 480px; width: 100%; position: relative; margin: 0px auto; display: inline-block;'
+    'height: 480px; width: 100%; position: relative; margin: 0px auto; display: inline-block; background-color: transparent;'
   )
   document.querySelector(appendedDomSelector).append(iframe)
 }
