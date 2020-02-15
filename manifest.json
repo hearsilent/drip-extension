@@ -2,7 +2,13 @@
   "name": "DRIP",
   "version": "1.0.0",
   "description": "DRIP - Campaign Tracker, Analytics and Statistics",
-  "permissions": ["activeTab", "declarativeContent", "storage", "tabs", "contextMenus"],
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage",
+    "tabs",
+    "contextMenus"
+  ],
   "icons": {
     "16": "drip-icon.png",
     "32": "drip-icon.png",
@@ -17,7 +23,10 @@
       "matches": [
         "https://www.indiegogo.com/projects/*",
         "https://www.zeczec.com/projects/*",
-        "https://www.kickstarter.com/projects/*"
+        "https://www.kickstarter.com/projects/*",
+        "https://www.flyingv.cc/projects/*",
+        "https://www.makuake.com/project/*",
+        "https://greenfunding.jp/*"
       ],
       "js": ["contentScript.js"]
     }
