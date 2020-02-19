@@ -1,6 +1,6 @@
 {
   "name": "DRIP",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "DRIP - Campaign Tracker, Analytics and Statistics",
   "permissions": [
     "activeTab",
