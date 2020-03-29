@@ -1,6 +1,6 @@
 {
   "name": "DRIP",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "DRIP - Campaign Tracker, Analytics and Statistics",
   "permissions": [
     "activeTab",
@@ -26,7 +26,10 @@
         "https://www.kickstarter.com/projects/*",
         "https://www.flyingv.cc/projects/*",
         "https://www.makuake.com/project/*",
-        "https://greenfunding.jp/*"
+        "https://greenfunding.jp/*",
+        "https://hahow.in/*",
+        "https://www.wadiz.kr/web/campaign/detail/*",
+        "https://camp-fire.jp/projects/view/*"
       ],
       "js": ["contentScript.js"]
     }
