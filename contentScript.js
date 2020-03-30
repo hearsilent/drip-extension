@@ -154,6 +154,23 @@ async function displayChart() {
       document.querySelector(appendedDomSelector).append(iframe)
     }
   } else {
+    const newLink = document.createElement('A')
+    newLink.href =
+      'https://chrome.google.com/webstore/detail/drip/ncgkmddibppebiomiicdfehogjkdegdk'
+    newLink.target = '_blank'
+
+    const image = document.createElement('IMG')
+    image.setAttribute(
+      'src',
+      `https://img.shields.io/badge/DRIP-%E7%9B%AE%E5%89%8D%E6%B2%92%E6%9C%89%E6%AD%A4%E5%B0%88%E6%A1%88%E8%B3%87%E6%96%99-FF48CC?style=for-the-badge&link=https://chrome.google.com/webstore/detail/drip/ncgkmddibppebiomiicdfehogjkdegdk&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAADV0lEQVRIS73VbYhUVRzH8e85987cmVl3tWANW83cSKm2NCPF7YVKVBAVmilKb2IzJCQsS6oX0mQlaA8+vJAKWpaKtTCQKTSDyAe0lhIfKFgs6IVrbpu6u/YwO3sfzon/7J3aQt07azRwOC/uPfM5v///3HsV/8NPVWvY1uZW1fJlSzXrqkJse9NmqFtFKfUp/f4itfqrgSRYYsQWrpuPye6hlE3j5wyh85B69Iud/y3yycSjhLUzKOXAz0GQOcuphkkq31YaCUqUxBbGr8Gp2chgdgiQOcpB6LXSPfMxlc+bS0EjIrYwrRbsYSI9ldCDQKDM0Bzm+nDSU9WK7WcvD2lvWkLK2Y5xNJELgQehIBkIBXTfVqvbV4wasXvnuZzyT6LsBIwC60KYHkJkFlAS9RevUa980HUx6JLlsm/duQBP78REYDUYB0wKQhmSSIak0U+qtdu2jA5584HNYFchW5HWWkFciFIQSZJKqkyHeuHVOaNDti7rgnDiX4sDA5Ek8kDJCYvTBJ6vXlrvVY3YdY/cTo3TUf7XtAfjG6CuHrT0w0Lvb3D6DPwegclAUW9Qm9Y+dyHooj2xL6/8CIdF5VLNmA3aBSvN10Nli6R0DnzzLZS0lPA79cYzN1eHrHv2R2w0hem3gufFgCAynLg/GgIFHZ1y4no5b25SbSt//jd0wST2qXwjY/RR6mrquGEamMoDrUGiGemLDEnnQudP0F0s4TNXvbP864TIhlmk2M+E+gzXNoC18bq4XAKUj3QMneyDH3otkXOfant4dzLkia2z0Go/DVdmmHJ1jMShpVxlRHoivdDQ9St832cx7r3q/Qf3JENatjWSTR/hitxYmiaDkSQVRHY/rGSCdZ6Bbr9IYJvVh/cfT4TITbbl3UM4NDP7ekg5f5er/HoZVjZJc6ALAucE9vwtascSPzmy8L3p1GYP4qkxzJwM6coRlh3EPfEtHOuBfkoMmKVq912Fqo5wOc2ywtPo1GtYAzfWw1VjIZIrGs4NwPFzEMhrxubVx3NfrPqJryywCz57HO08j2USWoHnwiAwqEHpXzBsVLvueH3Ur/rhC+3d+9aQdhej040EUQ8BO9Tnc/IjfXrl+ohfxn9Atx1OYYrjOD1QVD33/JEEkHv+BJW1SCnSMw1IAAAAAElFTkSuQmCC`
+    )
+
+    newLink.prepend(image)
+    if (platform.id === 7 || platform.id === 8) {
+      document.querySelector(appendedDomSelector).prepend(newLink)
+    } else {
+      document.querySelector(appendedDomSelector).append(newLink)
+    }
     console.log('Drip has no data for this project.')
   }
 }
