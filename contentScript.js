@@ -1,3 +1,9 @@
+const encryptor = new JSEncrypt()
+const publicKey = `MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDRsKBPCJKacuVPx1h07Svrh8BH
+9xCeYtXsDq6JMWm3yAA49LGka5NeVEHFyGplSPvjBB2+MwPnD3FwO6wHcczdALyE
+PthaqZBftzKHpPTr9cDm2+jsD6mzfJsnzSxeddHk+OD3ZEOOGBsomUHKT5Te3dhz
+TDyGaQAwaW7ypUPi4QIDAQAB`
+
 checkWindowLocationHrefChange()
 // Global variable
 let tabURL = window.location.href
@@ -17,9 +23,9 @@ function getPlatform(url) {
     { id: 6, name: 'greenfunding' },
     { id: 7, name: 'hahow' },
     { id: 8, name: 'wadiz' },
-    { id: 9, name: 'camp-fire' }
+    { id: 9, name: 'camp-fire' },
   ]
-  return platforms.find(platform => {
+  return platforms.find((platform) => {
     return url.indexOf(platform.name) > 0
   })
 }
@@ -95,7 +101,7 @@ function getProjectId(platform, tabURL) {
         tabURL.indexOf('?') >= 0 ? tabURL.indexOf('?') : 999
       )
       return projectId
-    }
+    },
   }
 
   return projectId[platform.name]()
@@ -129,15 +135,21 @@ function getAppendedDomSelector(platform) {
     },
     'camp-fire': () => {
       return 'body > div.projects-show.layouts-projects.layouts1.wrapper > header > section > section.headline.layouts-float.row.inner.clearfix'
-    }
+    },
   }
   return appendedDomSelector[platform.name]()
 }
 
 async function displayChart() {
   const iframe = document.createElement('IFRAME')
-  const baseURL = `https://drip.zectrack.today`
-  const composedURL = `${baseURL}/platform/${platform.id}/projects/${projectId}`
+  const baseURL = `https://drip-plugin.crowdfunding.coffee`
+  encryptor.setPublicKey(publicKey)
+
+  let encryptedURL = encryptor.encrypt(
+    `platform/${platform.id}/projects/${projectId}`
+  )
+  encryptedURL = encryptedURL.replace(/\//gi, '_')
+  const composedURL = `${baseURL}/${encryptedURL}`
 
   if (await isProjectDataExist(composedURL)) {
     iframe.setAttribute('src', composedURL)
@@ -189,7 +201,7 @@ async function isProjectDataExist(url) {
 }
 
 function checkAppendedDomElementExistAndDispalyChart() {
-  window.checkAppendedDomElementExistObserver = new MutationObserver(function(
+  window.checkAppendedDomElementExistObserver = new MutationObserver(function (
     mutations,
     me
   ) {
@@ -207,23 +219,23 @@ function checkAppendedDomElementExistAndDispalyChart() {
   // start observing
   checkAppendedDomElementExistObserver.observe(document.body, {
     childList: true,
-    subtree: true
+    subtree: true,
   })
 }
 
 function checkWindowLocationHrefChange() {
   let oldHref = document.location.href
-  const checkWindowLocationHrefObserver = new MutationObserver(function(
+  const checkWindowLocationHrefObserver = new MutationObserver(function (
     mutations
   ) {
-    mutations.forEach(function(mutation) {
-      if (oldHref != document.location.href) {
+    mutations.forEach(function (mutation) {
+      if (oldHref !== document.location.href) {
         oldHref = document.location.href
         // console.log('Window location change')
 
         checkAppendedDomElementExistObserver.observe(document.body, {
           childList: true,
-          subtree: true
+          subtree: true,
         })
 
         tabURL = window.location.href
@@ -235,6 +247,6 @@ function checkWindowLocationHrefChange() {
   })
   checkWindowLocationHrefObserver.observe(document.body, {
     childList: true,
-    subtree: true
+    subtree: true,
   })
 }

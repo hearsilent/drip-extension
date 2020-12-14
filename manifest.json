@@ -1,14 +1,8 @@
 {
   "name": "DRIP",
-  "version": "1.0.7",
-  "description": "DRIP - Campaign Tracker, Analytics and Statistics",
-  "permissions": [
-    "activeTab",
-    "declarativeContent",
-    "storage",
-    "tabs",
-    "contextMenus"
-  ],
+  "version": "1.0.15",
+  "description": "Drip - 你最好的集資追蹤工具",
+  "permissions": [],
   "icons": {
     "16": "drip-icon.png",
     "32": "drip-icon.png",
@@ -31,7 +25,7 @@
         "https://www.wadiz.kr/web/campaign/detail/*",
         "https://camp-fire.jp/projects/view/*"
       ],
-      "js": ["contentScript.js"]
+      "js": ["jsencrypt.min.js", "contentScript.js"]
     }
   ],
   "background": {
