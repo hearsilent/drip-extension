@@ -128,7 +128,7 @@ function getAppendedDomSelector(platform) {
       return 'body > div.l-main > div.project_header'
     },
     hahow: () => {
-      return '#main-screen > div > div:nth-child(1) > div:nth-child(4)'
+      return '#main-screen > div > div:nth-child(1) > div:nth-child(3)'
     },
     wadiz: () => {
       return '#container > div.reward-body-wrap'
