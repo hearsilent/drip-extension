@@ -110,7 +110,7 @@ function getProjectId(platform, tabURL) {
 function getAppendedDomSelector(platform) {
   const appendedDomSelector = {
     zeczec: () => {
-      return 'body > div.container.mv4-l.mt3-l'
+      return 'body > div:nth-child(4)'
     },
     indiegogo: () => {
       return '#main'
