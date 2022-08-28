@@ -33,10 +33,7 @@ function getPlatform(url) {
 function getProjectId(platform, tabURL) {
   const projectId = {
     zeczec: () => {
-      const projectId = tabURL.substring(
-        tabURL.lastIndexOf('/') + 1,
-        tabURL.indexOf('?') >= 0 ? tabURL.indexOf('?') : 999
-      )
+      const projectId = window.location.pathname.replace("/projects/",'').split('/')[0]
       return projectId
     },
     indiegogo: () => {
@@ -59,10 +56,7 @@ function getProjectId(platform, tabURL) {
       return projectId
     },
     flyingv: () => {
-      const projectId = tabURL.substring(
-        tabURL.lastIndexOf('/') + 1,
-        tabURL.indexOf('?') >= 0 ? tabURL.indexOf('?') : 999
-      )
+      const projectId = window.location.pathname.replace("/projects/",'').split('/')[0]
       return projectId
     },
     makuake: () => {
@@ -110,7 +104,7 @@ function getProjectId(platform, tabURL) {
 function getAppendedDomSelector(platform) {
   const appendedDomSelector = {
     zeczec: () => {
-      return 'body > div.container > div:first-child'
+      return 'body > div.container.lg\\:my-8'
     },
     indiegogo: () => {
       return '#main'
