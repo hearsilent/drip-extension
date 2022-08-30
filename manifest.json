@@ -1,6 +1,6 @@
 {
   "name": "DRIP",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Drip - 你最好的集資追蹤工具",
   "permissions": [],
   "icons": {
@@ -28,9 +28,5 @@
       "js": ["jsencrypt.min.js", "contentScript.js"]
     }
   ],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
   "manifest_version": 2
 }
