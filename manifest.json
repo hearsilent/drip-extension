@@ -9,7 +9,7 @@
     "48": "drip-icon.png",
     "128": "drip-icon.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": "drip-icon.png"
   },
   "content_scripts": [
@@ -28,5 +28,5 @@
       "js": ["jsencrypt.min.js", "contentScript.js"]
     }
   ],
-  "manifest_version": 2
+  "manifest_version": 3
 }
